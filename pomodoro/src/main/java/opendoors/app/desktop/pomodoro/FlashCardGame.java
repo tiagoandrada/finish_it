@@ -156,8 +156,14 @@ public class FlashCardGame extends Application {
 							i++;
 						}
 						flashcards.clear();
+						flashCardId = 0;
 						flashcards = (ArrayList<FlashCard>) dataController.getTodosFlashCardsPorAssunto(assuntos.get(i));
-						webEngine.loadContent(flashcards.get(0).getFrontContent());
+						System.out.println(flashcards.size());
+						if(flashcards.size() >= 1){
+							webEngine.loadContent(flashcards.get(0).getFrontContent());
+						}else{
+							webEngine.loadContent("Nenhum FlashCard foi encontrado.");
+						}
 					}
 
 				}
@@ -177,7 +183,7 @@ public class FlashCardGame extends Application {
 				}else{
 					buttonNextStep.setText("VERSO");
 					vBox.setStyle("-fx-background-color: #87CEFA");
-					if(++flashCardId >= assuntos.get(0).getFlashcards().size()){
+					if(++flashCardId >= flashcards.size()){
 						flashCardId = 0;
 					}
 					webEngine.loadContent(flashcards.get(flashCardId).getFrontContent());
