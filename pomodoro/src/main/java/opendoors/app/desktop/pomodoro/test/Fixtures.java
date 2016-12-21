@@ -13,17 +13,17 @@ public class Fixtures {
 	public static void main(String args[]){
 		
 		Materia materia = new Materia("JavaFX");
-		Materia materia2 = new Materia("Português");
-		Materia materia3 = new Materia("Direito Constitucional");
-		Materia materia4 = new Materia("Hibernate");
-		
+		Materia materia2 = new Materia("Hibernate");
+		Materia materia3 = new Materia("Angular");
+		Materia materia4 = new Materia("Sap Bods");
+		Materia materia5 = new Materia("Inglês");
+
 		
 		Assunto assunto1 = new Assunto(materia, "JavaFX");
-		Assunto assunto3 = new Assunto(materia2, "Acentuação Gráfica");
-		Assunto assunto4 = new Assunto(materia2, "Ortografia");
-		Assunto assunto5 = new Assunto(materia3, "Artigo 5");
-		Assunto assunto6 = new Assunto(materia3, "Poder Legislativo");
-		Assunto assunto7 = new Assunto(materia4, "Hibernate");
+		Assunto assunto2 = new Assunto(materia2, "Hibernate");
+		Assunto assunto3 = new Assunto(materia3, "Angular");
+		Assunto assunto4 = new Assunto(materia4, "Sap Bods");
+		Assunto assunto5 = new Assunto(materia5, "Phrasal Verbs");
 
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -33,12 +33,12 @@ public class Fixtures {
 		session.save(materia2);
 		session.save(materia3);
 		session.save(materia4);
+		session.save(materia5);
 		session.save(assunto1);
+		session.save(assunto2);
 		session.save(assunto3);
 		session.save(assunto4);
 		session.save(assunto5);
-		session.save(assunto6);
-		session.save(assunto7);
 		session.getTransaction().commit();
 		session.close();
 	}

@@ -80,7 +80,12 @@ public class FlashCardGame extends Application {
 		
 		browser.setPrefSize(399, 299);
 		scrollPane.setContent(browser);
-		webEngine.loadContent(flashcards.get(0).getFrontContent());
+		if(flashcards.size() > 0){
+			webEngine.loadContent(flashcards.get(0).getFrontContent());
+		}else{
+			webEngine.loadContent("Nenhum FlashCard para este assunto foi encontrado.");
+
+		}
 
 		scrollPane.setMaxSize(400, 300);
 		scrollPane.setPrefSize(400, 300);
@@ -162,7 +167,7 @@ public class FlashCardGame extends Application {
 						if(flashcards.size() >= 1){
 							webEngine.loadContent(flashcards.get(0).getFrontContent());
 						}else{
-							webEngine.loadContent("Nenhum FlashCard foi encontrado.");
+							webEngine.loadContent("Nenhum FlashCard para este assunto foi encontrado.");
 						}
 					}
 
